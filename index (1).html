@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kamalika Bharathi — Aspiring Data Scientist</title>
+<meta name="description" content="Portfolio of Kamalika Bharathi — Aspiring Data Scientist in Machine Learning, Data Visualization & Analytics." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#080b11; --bg2:#0d1119; --card:#121826; --card2:#161d2e;
+    --line:#222c40; --text:#eaf0f8; --muted:#8896ad;
+    --accent:#4de3c1; --accent2:#7aa2ff; --glow:rgba(77,227,193,.35);
+    --display:'Sora',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.65;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  section{max-width:1160px;margin:0 auto;padding:90px 7% 40px;}
+  .eyebrow{color:var(--accent);font-family:var(--mono);font-size:.78rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--accent);}
+  h2.title{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.9rem);font-weight:700;margin-bottom:34px;letter-spacing:-.5px;}
+
+  /* animated background blobs */
+  .bg-glow{position:fixed;border-radius:50%;filter:blur(120px);opacity:.14;z-index:-1;}
+  .g1{width:480px;height:480px;background:var(--accent);top:-120px;right:-100px;}
+  .g2{width:420px;height:420px;background:var(--accent2);bottom:10%;left:-140px;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 7%;background:rgba(8,11,17,.72);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s;}
+  nav.scrolled{border-bottom:1px solid var(--line);}
+  .logo{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:.5px;}
+  .logo span{color:var(--accent);}
+  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links a{color:var(--muted);font-size:.9rem;transition:color .2s;position:relative;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{border:1px solid var(--accent);color:var(--accent)!important;padding:8px 18px;border-radius:8px;font-weight:600;}
+  .nav-cta:hover{background:var(--accent);color:#052a23!important;}
+  .menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+
+  /* HERO */
+  .hero{max-width:1160px;margin:0 auto;padding:150px 7% 70px;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center;min-height:100vh;}
+  .badge{display:inline-flex;align-items:center;gap:9px;background:rgba(77,227,193,.08);border:1px solid rgba(77,227,193,.25);color:var(--accent);padding:7px 15px;border-radius:100px;font-size:.8rem;font-family:var(--mono);margin-bottom:26px;}
+  .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--glow);animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 var(--glow);}70%{box-shadow:0 0 0 9px rgba(77,227,193,0);}100%{box-shadow:0 0 0 0 rgba(77,227,193,0);}}
+  .hero h1{font-family:var(--display);font-size:clamp(2.5rem,5.5vw,4rem);font-weight:800;line-height:1.04;letter-spacing:-1.5px;margin-bottom:16px;}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .typed-wrap{font-family:var(--mono);font-size:clamp(1rem,2.2vw,1.4rem);color:var(--accent2);font-weight:500;min-height:1.6em;margin-bottom:22px;}
+  .cursor{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:3px;vertical-align:text-bottom;animation:blink 1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .lead{color:var(--muted);font-size:1.06rem;max-width:520px;margin-bottom:34px;}
+  .btns{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{padding:13px 26px;border-radius:10px;font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;display:inline-flex;align-items:center;gap:8px;}
+  .btn-primary{background:var(--accent);color:#052a23;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--glow);}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+
+  .hero-photo{display:flex;justify-content:center;position:relative;}
+  .photo-ring{position:relative;width:330px;height:330px;}
+  .photo-ring::before{content:'';position:absolute;inset:-8px;border-radius:28px;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:.6;filter:blur(14px);animation:float 6s ease-in-out infinite;}
+  .photo-ring img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:24px;border:1px solid var(--line);animation:float 6s ease-in-out infinite;}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+  .photo-tag{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--line);padding:8px 18px;border-radius:100px;font-family:var(--mono);font-size:.78rem;color:var(--accent);white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.4);}
+
+  .stats{display:flex;gap:46px;margin-top:52px;flex-wrap:wrap;}
+  .stat .num{font-family:var(--display);font-size:2rem;font-weight:700;color:var(--accent);}
+  .stat .label{color:var(--muted);font-size:.82rem;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:44px;align-items:start;}
+  .about-text{color:var(--muted);font-size:1.04rem;}
+  .about-text strong{color:var(--text);font-weight:600;}
+  .about-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;}
+  .about-card h4{font-family:var(--display);font-size:.95rem;color:var(--accent);margin-bottom:14px;letter-spacing:1px;}
+  .about-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:.9rem;}
+  .about-row:last-child{border-bottom:none;}
+  .about-row .k{color:var(--muted);}
+  .about-row .v{color:var(--text);font-weight:500;text-align:right;}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+  .skill-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .25s,border-color .25s;}
+  .skill-card:hover{transform:translateY(-5px);border-color:var(--accent);}
+  .skill-card h3{font-family:var(--display);font-size:1rem;margin-bottom:14px;display:flex;align-items:center;gap:9px;}
+  .skill-card h3 .ic{font-size:1.15rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;}
+  .tag{background:var(--bg2);border:1px solid var(--line);color:var(--muted);font-size:.8rem;padding:5px 11px;border-radius:7px;font-family:var(--mono);}
+
+  /* PROJECTS */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px;}
+  .project-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+  .project-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+  .project-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 16px 40px rgba(0,0,0,.35);}
+  .project-card:hover::after{transform:scaleX(1);}
+  .project-icon{font-size:1.9rem;margin-bottom:14px;}
+  .project-card h3{font-family:var(--display);font-size:1.18rem;margin-bottom:10px;letter-spacing:-.3px;}
+  .project-card p{color:var(--muted);font-size:.92rem;flex-grow:1;margin-bottom:16px;}
+  .ptags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+  .ptag{font-family:var(--mono);font-size:.72rem;color:var(--accent);background:rgba(77,227,193,.07);padding:3px 9px;border-radius:6px;}
+  .project-links a{color:var(--accent);font-size:.88rem;font-weight:600;}
+  .project-links a:hover{text-decoration:underline;}
+
+  /* CERTIFICATIONS */
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;}
+  .cert-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;transition:transform .2s,border-color .2s;}
+  .cert-card:hover{transform:translateY(-3px);border-color:var(--accent2);}
+  .cert-card .cert-badge{font-size:1.3rem;margin-bottom:8px;}
+  .cert-card h4{font-family:var(--display);font-size:.95rem;margin-bottom:4px;}
+  .cert-card .issuer{color:var(--muted);font-size:.82rem;}
+  .cert-card .date{color:var(--accent);font-family:var(--mono);font-size:.74rem;margin-top:6px;}
+
+  /* EDUCATION timeline */
+  .edu-item{display:flex;gap:20px;padding-bottom:24px;position:relative;padding-left:28px;}
+  .edu-item::before{content:'';position:absolute;left:5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(77,227,193,.15);}
+  .edu-item::after{content:'';position:absolute;left:10px;top:18px;bottom:-6px;width:1px;background:var(--line);}
+  .edu-item:last-child::after{display:none;}
+  .edu-item .info h4{font-family:var(--display);font-size:1.05rem;margin-bottom:3px;}
+  .edu-item .info .sub{color:var(--muted);font-size:.9rem;}
+  .edu-item .yr{color:var(--accent);font-family:var(--mono);font-size:.8rem;margin-bottom:4px;}
+
+  /* CONTACT */
+  .contact{text-align:center;padding-bottom:60px;}
+  .contact .lead{margin:0 auto 34px;}
+  .contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+  .contact-links a{background:var(--card);border:1px solid var(--line);padding:14px 26px;border-radius:12px;font-weight:600;transition:transform .2s,border-color .2s,color .2s;}
+  .contact-links a:hover{transform:translateY(-3px);border-color:var(--accent);color:var(--accent);}
+
+  footer{text-align:center;padding:36px;color:var(--muted);font-size:.84rem;border-top:1px solid var(--line);}
+  footer .logo{font-size:1rem;margin-bottom:6px;}
+
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.visible{opacity:1;transform:none;}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;text-align:center;gap:36px;padding-top:130px;}
+    .hero-photo{order:-1;} .photo-ring{width:240px;height:240px;}
+    .btns,.stats{justify-content:center;} .lead{margin-left:auto;margin-right:auto;}
+    .about-grid{grid-template-columns:1fr;} .nav-links{display:none;}
+    .nav-links.open{display:flex;flex-direction:column;position:absolute;top:58px;right:7%;background:var(--card2);padding:22px;border-radius:12px;border:1px solid var(--line);gap:18px;}
+    .menu-btn{display:block;}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto;}.reveal{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+<div class="bg-glow g1"></div>
+<div class="bg-glow g2"></div>
+
+<nav id="nav">
+  <div class="logo">Kamalika<span>.</span></div>
+  <div class="nav-links" id="navlinks">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certs">Certifications</a>
+    <a href="#contact">Contact</a>
+    <a href="resume.pdf" target="_blank" class="nav-cta">Resume ↗</a>
+  </div>
+  <button class="menu-btn" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div>
+    <span class="badge"><span class="pulse"></span> Available for opportunities</span>
+    <h1>Hi, I'm <span class="grad">Kamalika Bharathi</span></h1>
+    <div class="typed-wrap"><span id="typed"></span><span class="cursor"></span></div>
+    <p class="lead">Aspiring Data Scientist turning complex data into clear visual stories and predictive models — across machine learning, deep learning, and data visualization.</p>
+    <div class="btns">
+      <a href="#projects" class="btn btn-primary">View My Work →</a>
+      <a href="resume.pdf" target="_blank" class="btn btn-ghost">⬇ Download Resume</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">5+</div><div class="label">Projects</div></div>
+      <div class="stat"><div class="num">8</div><div class="label">Certifications</div></div>
+      <div class="stat"><div class="num">2 yrs</div><div class="label">Data Experience</div></div>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <div class="photo-ring">
+      <img src="profile.jpg" alt="Kamalika Bharathi" />
+      <div class="photo-tag">&lt;/&gt; Data Scientist in the making</div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="eyebrow reveal">About Me</div>
+  <h2 class="title reveal">Turning data into insights</h2>
+  <div class="about-grid">
+    <p class="about-text reveal">
+      I'm an <strong>aspiring Data Scientist</strong> and Master's student in Data Science, with a background in Electronics &amp; Communication Engineering and <strong>2 years of professional experience</strong> in data analysis and reporting. I love building things with data — from <strong>satellite land-cover classification</strong> using deep learning, to a <strong>phishing-URL detector</strong>, to interactive visualizations that make complex data easy to understand. I hold certifications in <strong>Power BI, Generative AI, and Databricks</strong>, and I'm currently deepening my skills in <strong>MLOps</strong> to take models from notebooks to production.
+    </p>
+    <div class="about-card reveal">
+      <h4>QUICK FACTS</h4>
+      <div class="about-row"><span class="k">Location</span><span class="v">Berlin, Germany</span></div>
+      <div class="about-row"><span class="k">Education</span><span class="v">M.Sc. Data Science</span></div>
+      <div class="about-row"><span class="k">Focus</span><span class="v">ML &amp; Data Viz</span></div>
+      <div class="about-row"><span class="k">Learning</span><span class="v">MLOps</span></div>
+      <div class="about-row"><span class="k">Languages</span><span class="v">EN · DE · TA</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="eyebrow reveal">What I Work With</div>
+  <h2 class="title reveal">Skills &amp; Tools</h2>
+  <div class="skills-grid">
+    <div class="skill-card reveal"><h3><span class="ic">🐍</span>Languages</h3><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">HTML</span><span class="tag">CSS</span></div></div>
+    <div class="skill-card reveal"><h3><span class="ic">📊</span>Data Analysis</h3><div class="tags"><span class="tag">Data Cleaning</span><span class="tag">EDA</span><span class="tag">Statistical Analysis</span><span class="tag">Reporting</span></div></div>
+    <div class="skill-card reveal"><h3><span class="ic">🤖</span>Machine Learning</h3><div class="tags"><span class="tag">Classification</span><span class="tag">Predictive Modeling</span><span class="tag">Model Evaluation</span><span class="tag">Gradient Boosting</span></div></div>
+    <div class="skill-card reveal"><h3><span class="ic">🧠</span>Deep Learning</h3><div class="tags"><span class="tag">CNN</span><span class="tag">ResNet-50</span><span class="tag">Transfer Learning</span><span class="tag">Image Classification</span></div></div>
+    <div class="skill-card reveal"><h3><span class="ic">📚</span>Libraries</h3><div class="tags"><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">scikit-learn</span><span class="tag">Matplotlib</span><span class="tag">Flask</span></div></div>
+    <div class="skill-card reveal"><h3><span class="ic">📈</span>BI &amp; Visualization</h3><div class="tags"><span class="tag">Power BI</span><span class="tag">Data Visualization</span><span class="tag">Excel</span></div></div>
+    <div class="skill-card reveal"><h3><span class="ic">🛠️</span>Tools &amp; Cloud</h3><div class="tags"><span class="tag">Jupyter</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Azure</span></div></div>
+    <div class="skill-card reveal"><h3><span class="ic">✨</span>AI &amp; Emerging</h3><div class="tags"><span class="tag">Generative AI</span><span class="tag">GPT / LLMs</span></div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="eyebrow reveal">My Work</div>
+  <h2 class="title reveal">Featured Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-icon">🛰️</div>
+      <h3>Satellite Land-Cover Classification</h3>
+      <p>Deep learning pipeline classifying land-cover types from Sentinel-1 satellite imagery, using transfer learning across seasonal variations for robust generalization.</p>
+      <div class="ptags"><span class="ptag">CNN</span><span class="ptag">ResNet-50</span><span class="ptag">Transfer Learning</span></div>
+      <div class="project-links"><a href="https://github.com/kamalika1191-cloud/satellite-landcover-seasonal-transfer" target="_blank">View on GitHub →</a></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-icon">🔒</div>
+      <h3>Phishing URL Detection</h3>
+      <p>End-to-end Flask web app extracting 30 URL features and using a Gradient Boosting classifier to detect phishing sites with a real-time safety score.</p>
+      <div class="ptags"><span class="ptag">Flask</span><span class="ptag">scikit-learn</span><span class="ptag">Gradient Boosting</span></div>
+      <div class="project-links"><a href="https://github.com/kamalika1191-cloud/phishing-url-detection" target="_blank">View on GitHub →</a></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-icon">📊</div>
+      <h3>Steam Games Data Visualization</h3>
+      <p>Interactive, web-based visualizations exploring Steam games data to reveal trends and patterns through clear visual storytelling.</p>
+      <div class="ptags"><span class="ptag">Python</span><span class="ptag">HTML</span><span class="ptag">Data Viz</span></div>
+      <div class="project-links"><a href="https://github.com/kamalika1191-cloud/steam-viz-final" target="_blank">View on GitHub →</a></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-icon">🏥</div>
+      <h3>Healthcare Appointment System</h3>
+      <p>Cloud-based appointment scheduling system deployed on Microsoft Azure with separate backend and frontend components.</p>
+      <div class="ptags"><span class="ptag">Azure</span><span class="ptag">Cloud</span><span class="ptag">Web Dev</span></div>
+      <div class="project-links"><a href="https://github.com/kamalika1191-cloud/healthcare-appointment-azure" target="_blank">View on GitHub →</a></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-icon">🥗</div>
+      <h3>Diet Recommendation System</h3>
+      <p>Recommendation system suggesting personalized diet plans based on user inputs, combining rule-based logic with data-driven techniques.</p>
+      <div class="ptags"><span class="ptag">Python</span><span class="ptag">ML</span><span class="ptag">Rule-based</span></div>
+      <div class="project-links"><a href="https://github.com/kamalika1191-cloud" target="_blank">View on GitHub →</a></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-icon">📈</div>
+      <h3>Data Visualization Coursework</h3>
+      <p>Exploratory data analysis and charts built in Jupyter Notebook, focused on clear, insight-driven visual communication.</p>
+      <div class="ptags"><span class="ptag">Jupyter</span><span class="ptag">pandas</span><span class="ptag">EDA</span></div>
+      <div class="project-links"><a href="https://github.com/kamalika1191-cloud/data-viz-coursework" target="_blank">View on GitHub →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="eyebrow reveal">Credentials</div>
+  <h2 class="title reveal">Certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-card reveal"><div class="cert-badge">✨</div><h4>Databricks Accredited Generative AI Fundamentals</h4><div class="issuer">Databricks Academy</div><div class="date">JUL 2024</div></div>
+    <div class="cert-card reveal"><div class="cert-badge">📊</div><h4>Master in Microsoft Power BI Desktop &amp; Service</h4><div class="issuer">Techademy</div><div class="date">SEP 2024</div></div>
+    <div class="cert-card reveal"><div class="cert-badge">📈</div><h4>Advanced Power BI Training</h4><div class="issuer">Techademy</div><div class="date">AUG 2024</div></div>
+    <div class="cert-card reveal"><div class="cert-badge">🤖</div><h4>Introduction to Generative AI with GPT</h4><div class="issuer">LinkedIn Learning</div><div class="date">JUL 2024</div></div>
+    <div class="cert-card reveal"><div class="cert-badge">💡</div><h4>What Is Generative AI?</h4><div class="issuer">LinkedIn Learning</div><div class="date">JUL 2024</div></div>
+    <div class="cert-card reveal"><div class="cert-badge">🌐</div><h4>World of Computer Networking</h4><div class="issuer">IIHT / Tata Communications</div><div class="date">DEC 2023</div></div>
+    <div class="cert-card reveal"><div class="cert-badge">📗</div><h4>Microsoft Excel Intermediate 2016</h4><div class="issuer">IIHT / Tata Communications</div><div class="date">JUN 2023</div></div>
+    <div class="cert-card reveal"><div class="cert-badge">📘</div><h4>Excel 2019 Beginners Training</h4><div class="issuer">IIHT / Tata Communications</div><div class="date">JUN 2023</div></div>
+  </div>
+</section>
+
+<!-- EDUCATION + EXPERIENCE -->
+<section id="education">
+  <div class="eyebrow reveal">My Journey</div>
+  <h2 class="title reveal">Education &amp; Experience</h2>
+  <div class="edu-item reveal">
+    <div class="info"><div class="yr">2025 – PRESENT</div><h4>M.Sc. Data Science</h4><div class="sub">University of Europe for Applied Sciences, Berlin</div></div>
+  </div>
+  <div class="edu-item reveal">
+    <div class="info"><div class="yr">2023 – 2025</div><h4>Data Analyst — Customer Operations</h4><div class="sub">Tata Communications, Chennai · Analyzed customer data, built Excel dashboards &amp; reports, drove process improvements.</div></div>
+  </div>
+  <div class="edu-item reveal">
+    <div class="info"><div class="yr">2019 – 2023</div><h4>B.E. Electronics &amp; Communication Engineering</h4><div class="sub">Panimalar Engineering College, India · GPA: 8.79</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="eyebrow reveal" style="justify-content:center;">Get In Touch</div>
+  <h2 class="title reveal">Let's build something with data</h2>
+  <p class="lead reveal">I'm open to opportunities in data science, machine learning, and analytics. Let's connect!</p>
+  <div class="contact-links reveal">
+    <a href="mailto:kamalika1191@gmail.com" target="_blank">✉️ Email</a>
+    <a href="https://www.linkedin.com/in/kamalika-bharathi-k-u" target="_blank">💼 LinkedIn</a>
+    <a href="https://github.com/kamalika1191-cloud" target="_blank">🐙 GitHub</a>
+    <a href="resume.pdf" target="_blank">📄 Resume</a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Kamalika<span>.</span></div>
+  © 2026 Kamalika Bharathi · Built with care
+</footer>
+
+<script>
+  const roles=["Aspiring Data Scientist","Machine Learning Enthusiast","Data Visualization Developer","Python Developer"];
+  const el=document.getElementById("typed");let r=0,c=0,del=false;
+  (function type(){const w=roles[r];el.textContent=del?w.substring(0,c--):w.substring(0,c++);
+   if(!del&&c===w.length+1){del=true;setTimeout(type,1500);return;}
+   if(del&&c===0){del=false;r=(r+1)%roles.length;}
+   setTimeout(type,del?45:85);})();
+
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible");}),{threshold:.1});
+  document.querySelectorAll(".reveal").forEach((el,i)=>{el.style.transitionDelay=(i%3*0.08)+"s";obs.observe(el);});
+
+  const nav=document.getElementById("nav");
+  addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>30));
+  document.querySelectorAll("#navlinks a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navlinks").classList.remove("open")));
+</script>
+</body>
+</html>
